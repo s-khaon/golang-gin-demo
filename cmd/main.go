@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func setupRouter() *gin.Engine {
@@ -23,5 +24,5 @@ func setupRouter() *gin.Engine {
 
 func main() {
 	r := setupRouter()
-	r.Run()
+	r.Run(":5000")
 }
