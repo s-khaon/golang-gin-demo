@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: golang-gin-demo
+  namespace: default
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  selector:
+    app: golang-gin-demo
+  type: ClusterIP

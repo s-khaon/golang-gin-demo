@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: golang-gin-demo
+  name: golang-gin-demo
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: golang-gin-demo
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: golang-gin-demo
+    spec:
+      containers:
+        - image: 'ccr.ccs.tencentyun.com/sk-study/golang-gin-demo:1.0.3'
+          imagePullPolicy: Always
+          name: golang-gin-demo
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          resources:
+            limits:
+              memory: 100Mi
+            requests:
+              memory: 100Mi
+      restartPolicy: Always
