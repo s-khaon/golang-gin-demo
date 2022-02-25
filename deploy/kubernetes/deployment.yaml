@@ -26,7 +26,7 @@ spec:
           imagePullPolicy: Always
           name: golang-gin-demo
           ports:
-            - containerPort: 5000
+            - containerPort: 8080
               protocol: TCP
           resources:
             limits:
