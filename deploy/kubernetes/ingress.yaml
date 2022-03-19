@@ -1,1 +1,15 @@
-kind: IngressapiVersion: networking.k8s.io/v1beta1metadata:  name: golang-gin-demo  namespace: defaultspec:  rules:    - host: k8s.kubesrun.top      http:        paths:          - path: /            pathType: ImplementationSpecific            backend:              serviceName: golang-gin-demo              servicePort: 80
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: golang-gin-demo
+  namespace: default
+spec:
+  rules:
+    - host: k8s.kubesrun.top
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: golang-gin-demo
+              servicePort: 80
